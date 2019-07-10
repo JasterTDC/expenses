@@ -1,0 +1,17 @@
+version : '3'
+services : 
+  sql : 
+    image : mariadb
+    ports : 
+      - "3307:3306"
+    environment :
+      MYSQL_ROOT_PASSWORD : root
+  nginx :
+    image : nginx
+    ports :
+      - "80:80"
+    depends_on :
+      - sql
+    volumes :
+      - ./code:/srv/www
+      - ./logs:/LOGS
