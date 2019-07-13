@@ -6,8 +6,6 @@ require_once __DIR__ . '/config/constants.php';
 // Load configuration using the application environment
 $config = require_once __DIR__ . '/config/' . APPLICATION_ENV . '.php';
 
-print_r($config);die();
-
 use Slim\App;
 
 ini_set('display_errors', true);
