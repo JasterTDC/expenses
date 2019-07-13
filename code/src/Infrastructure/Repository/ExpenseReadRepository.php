@@ -4,12 +4,11 @@ namespace ComAI\Expenses\Infrastructure\Repository;
 
 /**
  * ExpenseReadRepository
- * 
+ *
  * @author Ismael Moral <jastertdc@email.com>
  */
 class ExpenseReadRepository
 {
-
     /**
      * PDO connection
      *
@@ -20,12 +19,11 @@ class ExpenseReadRepository
     /**
      * ExpenseReadRepository constructor
      *
-     * @param PDO $pdo
+     * @param \PDO $pdo
      */
     public function __construct(
         \PDO $pdo
     ) {
-        $this->pdo = $pdo;        
+        $this->pdo = $pdo;
     }
-
 }

@@ -8,12 +8,11 @@ use Slim\Http\Response;
 
 /**
  * MainController
- * 
+ *
  * @author Ismael Moral <jastertdc@email.com>
  */
 class MainController
 {
-
     /**
      * MainController
      *
@@ -27,5 +26,4 @@ class MainController
             'success' => true
         ]);
     }
-    
 }

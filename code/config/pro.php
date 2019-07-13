@@ -1,8 +1,6 @@
 <?php
 
-$configPro = require_once __DIR__ . '/pro.php';
-
-$configDes = [
+return [
     'settings' => [
         'expenseDatabase' => [
             'engine'    => 'mysql',
@@ -15,5 +13,3 @@ $configDes = [
         ]
     ]
 ];
-
-return array_merge($configPro, $configDes);
