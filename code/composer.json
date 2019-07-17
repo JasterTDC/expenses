@@ -3,7 +3,8 @@
     "description": "Expenses management in home",
     "require": {
         "slim/slim": "^3.12",
-        "ext-dom" : "*"
+        "ext-dom" : "*",
+        "ext-pdo" : "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^8",
