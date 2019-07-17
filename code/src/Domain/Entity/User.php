@@ -4,6 +4,7 @@ namespace ComAI\Expenses\Domain\Entity;
 
 use ComAI\Expenses\Domain\ValueObject\Email;
 use ComAI\Expenses\Domain\ValueObject\Password;
+use ComAI\Expenses\Domain\ValueObject\Username;
 
 /**
  * User
@@ -19,7 +20,7 @@ class User
     protected $id;
 
     /**
-     * @var string
+     * @var Username
      */
     protected $username;
 
@@ -37,13 +38,13 @@ class User
      * User constructor.
      *
      * @param int $id
-     * @param string $username
+     * @param Username $username
      * @param Email $email
      * @param Password $password
      */
     public function __construct(
         int $id,
-        string $username,
+        Username $username,
         Email $email,
         Password $password
     ) {
@@ -70,17 +71,17 @@ class User
     }
 
     /**
-     * @return string
+     * @return Username
      */
-    public function username(): string
+    public function username(): Username
     {
         return $this->username;
     }
 
     /**
-     * @param string $username
+     * @param Username $username
      */
-    public function setUsername(string $username): void
+    public function setUsername(Username $username): void
     {
         $this->username = $username;
     }
