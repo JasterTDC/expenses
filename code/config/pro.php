@@ -2,7 +2,7 @@
 
 return [
     'settings' => [
-        'expenseDatabase' => [
+        'expenseWriterDatabase' => [
             'engine'    => 'mysql',
             'hostname'  => 'sql',
             'username'  => 'root',

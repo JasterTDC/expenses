@@ -14,7 +14,7 @@ use Throwable;
 class UsernameCapitalLetterException extends \Exception
 {
 
-    const MESSAGE = 'Capital letters is not allowed in username';
+    const MESSAGE = 'Capital letters are not allowed in username';
     const CODE = 0;
 
     /**

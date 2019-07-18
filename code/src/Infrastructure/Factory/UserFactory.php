@@ -8,14 +8,15 @@ use ComAI\Expenses\Domain\Exception\EmailInvalidException;
 use ComAI\Expenses\Domain\Exception\PasswordInvalidException;
 use ComAI\Expenses\Domain\Exception\UsernameCapitalLetterException;
 use ComAI\Expenses\Domain\Exception\UsernameWhiteSpaceException;
+use ComAI\Expenses\Domain\Factory\UserFactoryInterface;
 
 /**
- * Class UserFactory
+ * Class UserFactoryInterface
  *
  * @package ComAI\Expenses\Infrastructure\Factory
  * @author  Ismael Moral <jastertdc@gmail.com>
  */
-class UserFactory
+class UserFactory implements UserFactoryInterface
 {
 
     /**
@@ -34,7 +35,7 @@ class UserFactory
     protected $emailFactory;
 
     /**
-     * UserFactory constructor.
+     * UserFactoryInterface constructor.
      * @param UsernameFactory $usernameFactory
      * @param PasswordFactory $passwordFactory
      * @param EmailFactory $emailFactory
@@ -52,8 +53,8 @@ class UserFactory
     /**
      * @param int|null $userId
      * @param string $username
-     * @param string $password
      * @param string $email
+     * @param string $password
      *
      * @return User
      * @throws EmailInvalidException
@@ -64,8 +65,8 @@ class UserFactory
     public function create(
         ?int $userId,
         string $username,
-        string $password,
-        string $email
+        string $email,
+        string $password
     ) : User {
         return new User(
             $userId,

@@ -5,13 +5,14 @@ namespace ComAI\Expenses\Infrastructure\Repository;
 
 use ComAI\Expenses\Domain\Entity\User;
 use ComAI\Expenses\Domain\Exception\UserPersistenceException;
+use ComAI\Expenses\Domain\Repository\UserWriter;
 
 /**
  * Class UserWriterRepository
  *
  * @package ComAI\Expenses\Infrastructure\Repository
  */
-class UserWriterRepository
+class UserWriterRepository implements UserWriter
 {
 
     /**
@@ -26,15 +27,23 @@ class UserWriterRepository
     public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
+        $this->pdo->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
     /**
      * @param User $user
      *
-     * @return bool
+     * @return User
+     * @throws UserPersistenceException
      */
-    public function persist(User $user) : bool
+    public function persist(User $user) : User
     {
+        if (empty($user->id())) {
+            return $this->insertUser($user);
+        }
+
+        return $user;
     }
 
     /**
@@ -45,19 +54,19 @@ class UserWriterRepository
      */
     protected function insertUser(User $user) : User
     {
-        $sql = 'INSERT INTO expenses.users(id, username, password, email)
+        $sql = 'INSERT INTO `expenses`.`users`(`username`, `password`, `email`)
         VALUES (:username, :password, :email)
         ';
 
         $parameters = [
-            'username'  => $user->username(),
-            'password'  => $user->password(),
-            'email'     => $user->email()
+            ':username'  => $user->username()->username(),
+            ':password'  => $user->password()->password(),
+            ':email'     => $user->email()->email()
         ];
 
         try {
             $statement = $this->pdo->prepare($sql);
-            $statement->execute($parameters);
+            $result = $statement->execute($parameters);
 
             $user->setId((int) $this->pdo->lastInsertId());
 
