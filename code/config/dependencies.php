@@ -1,30 +1,9 @@
 <?php
 
-use Interop\Container\ContainerInterface;
-use ComAI\Expenses\Infrastructure\Repository\ExpenseReadRepository;
-use ComAI\Expenses\Infrastructure\Controller\MainController;
+require_once __DIR__ . '/controllers/controllers.php';
 
-$container['expenseDatabase'] = function (ContainerInterface $container) {
-    $expenseDatabaseConfig = $container->get('settings')['expenseDatabase'];
+require_once __DIR__ . '/factory/factory.php';
 
-    $dsn = "{$expenseDatabaseConfig['engine']}:host={$expenseDatabaseConfig['hostname']};".
-    "charset={$expenseDatabaseConfig['charset']};".
-    "port={$expenseDatabaseConfig['port']};".
-    "dbname={$expenseDatabaseConfig['database']}";
+require_once __DIR__ . '/repository/repository.php';
 
-    return new PDO(
-        $dsn,
-        $expenseDatabaseConfig['username'],
-        $expenseDatabaseConfig['password']
-    );
-};
-
-$container[ExpenseReadRepository::class] = function (ContainerInterface $container) {
-    return new ExpenseReadRepository(
-        $container->get('expenseDatabase')
-    );
-};
-
-$container[MainController::class] = function (ContainerInterface $container) {
-    return new MainController();
-};
+require_once __DIR__ . '/useCase/use_case.php';

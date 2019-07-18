@@ -45,4 +45,12 @@ class Password
 
         return new self($hash);
     }
+
+    /**
+     * @return string
+     */
+    public function password(): string
+    {
+        return $this->password;
+    }
 }

@@ -4,7 +4,7 @@ $configPro = require_once __DIR__ . '/pro.php';
 
 $configDes = [
     'settings' => [
-        'expenseDatabase' => [
+        'expenseWriterDatabase' => [
             'engine'    => 'mysql',
             'hostname'  => 'sql',
             'username'  => 'root',

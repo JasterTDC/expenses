@@ -15,7 +15,7 @@ class User
 {
 
     /**
-     * @var int
+     * @var int|null
      */
     protected $id;
 
@@ -37,13 +37,13 @@ class User
     /**
      * User constructor.
      *
-     * @param int $id
+     * @param int|null $id
      * @param Username $username
      * @param Email $email
      * @param Password $password
      */
     public function __construct(
-        int $id,
+        ?int $id,
         Username $username,
         Email $email,
         Password $password
@@ -55,17 +55,17 @@ class User
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function id(): int
+    public function id(): ?int
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param int|null $id
      */
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
