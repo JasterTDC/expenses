@@ -75,4 +75,29 @@ class UserFactory implements UserFactoryInterface
             $this->passwordFactory->create($password)
         );
     }
+
+    /**
+     * @param int|null $userId
+     * @param string $username
+     * @param string $email
+     * @param string $password
+     *
+     * @return User
+     * @throws EmailInvalidException
+     * @throws UsernameCapitalLetterException
+     * @throws UsernameWhiteSpaceException
+     */
+    public function createWithoutPasswordHash(
+        ?int $userId,
+        string $username,
+        string $email,
+        string $password
+    ) : User {
+        return new User(
+            $userId,
+            $this->usernameFactory->create($username),
+            $this->emailFactory->create($email),
+            $this->passwordFactory->createWithoutPasswordHash($password)
+        );
+    }
 }

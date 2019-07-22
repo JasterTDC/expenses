@@ -47,6 +47,16 @@ class Password
     }
 
     /**
+     * @param string $password
+     *
+     * @return Password
+     */
+    public static function createWithoutPasswordHash(string $password)
+    {
+        return new self($password);
+    }
+
+    /**
      * @return string
      */
     public function password(): string

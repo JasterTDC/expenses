@@ -66,7 +66,7 @@ class UserWriterRepository implements UserWriter
 
         try {
             $statement = $this->pdo->prepare($sql);
-            $result = $statement->execute($parameters);
+            $statement->execute($parameters);
 
             $user->setId((int) $this->pdo->lastInsertId());
 

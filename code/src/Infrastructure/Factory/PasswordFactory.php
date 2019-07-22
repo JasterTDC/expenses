@@ -24,4 +24,14 @@ class PasswordFactory
     {
         return Password::create($password);
     }
+
+    /**
+     * @param string $password
+     *
+     * @return Password
+     */
+    public function createWithoutPasswordHash(string $password)
+    {
+        return Password::createWithoutPasswordHash($password);
+    }
 }

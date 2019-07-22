@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ComAI\Expenses\Tests\Application\UseCase;
+namespace ComAI\Expenses\Tests\Application\UseCase\User;
 
 use ComAI\Expenses\Application\UseCase\User\RegisterUserUseCase;
 use ComAI\Expenses\Application\UseCase\User\RegisterUserUserCaseArgument;
