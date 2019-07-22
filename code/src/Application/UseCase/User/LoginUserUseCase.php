@@ -61,7 +61,7 @@ class LoginUserUseCase
                 );
             }
 
-            if (!empty($email)) {
+            if (!empty($email) && empty($user)) {
                 $user = $this->userReader->getByEmail(
                     $email->email()
                 );

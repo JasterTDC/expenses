@@ -76,7 +76,8 @@ class LoginUserController
                 setcookie(
                     UserLoginCookie::LOGIN_COOKIE,
                     $userLogin->encodedData(),
-                    time() + UserLoginCookie::LOGIN_COOKIE_TIME
+                    time() + UserLoginCookie::LOGIN_COOKIE_TIME,
+                    '/'
                 );
             } catch (UserCookieInvalidDataException $e) {
                 return $response->withJson([
