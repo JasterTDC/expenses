@@ -1,2 +1,5 @@
 .idea
+.vscode
 logs/*.log
+databaseData/
+vendor/
