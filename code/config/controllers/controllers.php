@@ -2,9 +2,9 @@
 
 use ComAI\Expenses\Application\UseCase\User\LoginUserUseCase;
 use ComAI\Expenses\Application\UseCase\User\RegisterUserUseCase;
-use ComAI\Expenses\Infrastructure\Controller\LoginUserController;
+use ComAI\Expenses\Infrastructure\Controller\User\LoginUserController;
 use ComAI\Expenses\Infrastructure\Controller\MainController;
-use ComAI\Expenses\Infrastructure\Controller\RegisterUserController;
+use ComAI\Expenses\Infrastructure\Controller\User\RegisterUserController;
 use Interop\Container\ContainerInterface;
 
 $container[MainController::class] = function () {

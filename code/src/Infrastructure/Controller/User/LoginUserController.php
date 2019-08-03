@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ComAI\Expenses\Infrastructure\Controller;
+namespace ComAI\Expenses\Infrastructure\Controller\User;
 
 use ComAI\Expenses\Application\UseCase\User\LoginUserUseCase;
 use ComAI\Expenses\Application\UseCase\User\LoginUserUseCaseArgument;
