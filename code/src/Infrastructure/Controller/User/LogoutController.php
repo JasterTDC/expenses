@@ -38,7 +38,7 @@ class LogoutController
 
             setcookie(
                 UserLoginCookie::LOGIN_COOKIE,
-                null,
+                '',
                 -1,
                 '/'
             );
