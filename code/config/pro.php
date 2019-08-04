@@ -20,5 +20,6 @@ return [
             'charset'   => 'utf8',
             'port'      => 3306
         ]
-    ]
+    ],
+    'dateFormat'    => 'Y-m-d H:i:s'
 ];

@@ -1,6 +1,7 @@
 <?php
 
 use ComAI\Expenses\Infrastructure\Factory\UserFactory;
+use ComAI\Expenses\Infrastructure\Repository\ExpenseWriterRepository;
 use ComAI\Expenses\Infrastructure\Repository\UserReaderRepository;
 use ComAI\Expenses\Infrastructure\Repository\UserWriterRepository;
 use Psr\Container\ContainerInterface;
@@ -38,6 +39,13 @@ $container['expenseReaderDatabase'] = function (ContainerInterface $container) {
 $container[UserWriterRepository::class] = function (ContainerInterface $container) {
     return new UserWriterRepository(
         $container->get('expenseWriterDatabase')
+    );
+};
+
+$container[ExpenseWriterRepository::class] = function (ContainerInterface $container) {
+    return new ExpenseWriterRepository(
+        $container->get('expenseWriterDatabase'),
+        $container->get('dateFormat')
     );
 };
 

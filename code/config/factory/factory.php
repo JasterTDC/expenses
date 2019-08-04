@@ -1,6 +1,7 @@
 <?php
 
 use ComAI\Expenses\Infrastructure\Factory\EmailFactory;
+use ComAI\Expenses\Infrastructure\Factory\ExpenseFactory;
 use ComAI\Expenses\Infrastructure\Factory\PasswordFactory;
 use ComAI\Expenses\Infrastructure\Factory\UserFactory;
 use ComAI\Expenses\Infrastructure\Factory\UsernameFactory;
@@ -24,4 +25,8 @@ $container[UserFactory::class] = function (ContainerInterface $container) {
         $container->get(PasswordFactory::class),
         $container->get(EmailFactory::class)
     );
+};
+
+$container[ExpenseFactory::class] = function (ContainerInterface $container) {
+    return new ExpenseFactory($container->get('dateFormat'));
 };
