@@ -10,7 +10,8 @@ services :
       - ./databaseConfig:/docker-entrypoint-initdb.d
       - ./databaseData:/var/lib/mysql/
   nginx :
-    image : nginx
+    build :
+      context: './docker-base'
     ports :
       - "80:80"
     depends_on :
