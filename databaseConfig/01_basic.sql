@@ -12,3 +12,6 @@ CREATE TABLE `expenses`.`users` (
     CONSTRAINT `users_username` UNIQUE(`username`),
     CONSTRAINT `users_email` UNIQUE(`email`)
 )Engine=InnoDB CHARSET=utf8;
+
+CREATE TABLE `expenses`.`user_expenses` (
+);
